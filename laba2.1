@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+class car {
+private:
+	string model;
+	double speed;
+public:
+	car(const string& m, double s) : model(m), speed(s) {}
+	string Model() {
+		return model;
+	}
+	double Speed() {
+		return speed;
+	}
+	bool Sort(double a) const {
+		if (speed > a) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	void print() const {
+		cout << "Model: " << model << ", max speed: " << speed << endl;
+	}
+};
+int main()
+{
+	double a,s;
+	cin >> a;
+	vector <car> Car = {
+		car("BMW",100),
+		car("Mercedes",200),
+		car("Toyota",300)
+	};
+	for (int i = 0; i < 3; ++i) {
+		if (Car[i].Sort(a)) {
+			Car[i].print();
+		}
+	}
+}
